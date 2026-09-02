@@ -1,0 +1,48 @@
+#!/bin/sh
+# Keeps Wine's COM mapping for the Victron MK3-USB interface in shape:
+#   * the chosen COM port always points at /dev/victron-mk3 (the udev symlink,
+#     see 70-victron-mk3.rules)
+#   * dead mappings to /dev/ttyS* are removed. Wine recreates
+#     com1..com32 -> /dev/ttyS0..31 on every prefix update; where those are not
+#     real ports they can still be opened but never answer, which makes COM
+#     auto-detection run into 32 timeouts.
+#   * duplicates pointing at the same device as the chosen port (for example
+#     com33 -> ttyUSB0) are removed.
+# Every other port is left alone, so a genuine second adapter is not swept away.
+#
+# This script is idempotent, and that is a requirement rather than a nicety:
+# victron-com1.path watches the very directory it writes to and would otherwise
+# trigger itself forever.
+
+CONF="${XDG_CONFIG_HOME:-$HOME/.config}/victron-wine/config"
+# shellcheck source=/dev/null
+[ -r "$CONF" ] && . "$CONF"
+
+WINEPREFIX="${WINEPREFIX:-$HOME/.wine}"
+VICTRON_COM="${VICTRON_COM:-com1}"
+VICTRON_DEV="${VICTRON_DEV:-/dev/victron-mk3}"
+
+DOSDEV="$WINEPREFIX/dosdevices"
+[ -d "$DOSDEV" ] || exit 0
+
+[ "$(readlink "$DOSDEV/$VICTRON_COM")" = "$VICTRON_DEV" ] \
+    || ln -sfn "$VICTRON_DEV" "$DOSDEV/$VICTRON_COM"
+
+real1=$(readlink -f "$DOSDEV/$VICTRON_COM" 2>/dev/null)
+for link in "$DOSDEV"/com*; do
+    [ -L "$link" ] || continue
+    [ "${link##*/}" = "$VICTRON_COM" ] && continue
+    target=$(readlink "$link")
+    case "$target" in
+        /dev/ttyS[0-9]*) rm -f "$link"; continue ;;
+    esac
+    # dangling symlink: useless, Wine recreates it when it needs one
+    if [ ! -e "$link" ]; then
+        rm -f "$link"
+        continue
+    fi
+    if [ -n "$real1" ] && [ "$(readlink -f "$link" 2>/dev/null)" = "$real1" ]; then
+        rm -f "$link"
+    fi
+done
+exit 0

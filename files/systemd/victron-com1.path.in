@@ -1,0 +1,10 @@
+[Unit]
+Description=Watch Wine's dosdevices (wineboot resets the COM mapping)
+Documentation=https://github.com/byPARSE/victron-tools-under-linux
+
+[Path]
+PathChanged=@WINEPREFIX@/dosdevices
+Unit=victron-com1.service
+
+[Install]
+WantedBy=default.target

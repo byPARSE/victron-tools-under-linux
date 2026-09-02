@@ -1,0 +1,27 @@
+REGEDIT4
+
+; Settings for the Victron tools under Wine.
+;
+; install.sh fills in the placeholders and imports this file. @WINEUSER@ is
+; taken from the running system, so no user name is stored in this repository.
+;
+; "Scan COM ports"="0" turns off COM auto-detection. It cannot work under Wine
+; at all: Wine's wbemprox does not implement Win32_SerialPort, so the WMI query
+; returns zero ports. Without the switch the scan also runs into timeouts on
+; the ttyS dummy ports. Select the MK3 manually on COM1 instead.
+;
+; "Multi names file" keeps the VE.Bus System Configurator from getting stuck in
+; an endless chain of save dialogs on first start (Cancel just brings it back).
+
+[HKEY_CURRENT_USER\Software\Victron Energy\VEConfig\Settings]
+"Scan COM ports"="0"
+"High speed communication"="1"
+"Selected Language"="@LANG@"
+"Warn if a translation is missing"="0"
+
+[HKEY_CURRENT_USER\Software\Victron Energy\VE.Bus System Configurator\Settings]
+"Scan COM ports"="0"
+"Multi names file"="C:\\users\\@WINEUSER@\\Documents\\Multinames.dat"
+
+[HKEY_CURRENT_USER\Software\Victron Energy\VE.Bus Quick Configure\Settings]
+"Scan COM ports"="0"

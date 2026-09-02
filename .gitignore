@@ -1,0 +1,12 @@
+# Victron's own software is never committed here. It belongs to Victron Energy
+# and is downloaded by each user from victronenergy.com. pack-tools.sh may
+# create the archive locally so you can carry it to an offline machine, but it
+# stays out of the repository.
+installers/*.exe
+installers/*.tar.gz
+installers/*.zip
+
+# Editor and OS leftovers
+*~
+.*.sw?
+.DS_Store

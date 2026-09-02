@@ -1,0 +1,10 @@
+[Unit]
+Description=Keep Wine's COM mapping for the Victron MK3-USB interface in shape
+Documentation=https://github.com/byPARSE/victron-tools-under-linux
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/victron-com1-fix
+
+[Install]
+WantedBy=default.target

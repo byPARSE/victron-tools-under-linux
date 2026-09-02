@@ -1,0 +1,17 @@
+# Victron MK3-USB (VE.Bus) on an FTDI FT-X, USB ID 0403:6015
+#
+# Two jobs:
+#   * TAG+="uaccess" grants the locally logged-in user access to the port via
+#     an ACL. The 70 prefix is MANDATORY: the tag is evaluated by
+#     73-seat-late.rules, so a 99- rule runs too late and no ACL is created.
+#   * SYMLINK gives the adapter a stable name, no matter whether it shows up
+#     as ttyUSB0, ttyUSB1, ...
+#
+# GROUP is filled in by install.sh: uucp on Arch and Fedora,
+# dialout on Debian, Ubuntu and openSUSE.
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6015", SYMLINK+="victron-mk3", GROUP="@TTYGROUP@", MODE="0660", TAG+="uaccess"
+
+# Optional: lower the FTDI latency from 16 ms to 1 ms. Speeds up VE.Bus
+# communication, but is NOT required for the adapter to be detected.
+# Uncomment the next line to enable it.
+#ACTION=="add", SUBSYSTEM=="usb-serial", DRIVERS=="ftdi_sio", ATTR{latency_timer}="1"
