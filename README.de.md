@@ -166,4 +166,4 @@ du willst.
 Die Victron-Software selbst ist **nicht** Teil dieses Repositories und wird
 hier auch nicht weitergegeben; sie gehört Victron Energy B.V. Dieses Projekt
 steht in keiner Verbindung zu Victron Energy B.V. und wird von dort weder
-unterstützt noch betreut.
+unterstützt noch betreut. Siehe [NOTICE.md](NOTICE.md).

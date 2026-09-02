@@ -158,4 +158,5 @@ than the FTDI `0403:6015`.
 
 The Victron software itself is **not** part of this repository and is not
 redistributed here; it belongs to Victron Energy B.V. This project is not
-affiliated with, endorsed by, or supported by Victron Energy B.V.
+affiliated with, endorsed by, or supported by Victron Energy B.V. See
+[NOTICE.md](NOTICE.md).
