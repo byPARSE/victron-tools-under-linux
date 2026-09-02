@@ -12,6 +12,25 @@ meisten Desktops mit `Strg`+`Alt`+`T` oder indem du im Anwendungsmenü nach
 
 ---
 
+## Bitte vorher lesen
+
+**Du benutzt das auf eigene Gefahr.** Dieses Projekt stammt nicht von Victron
+Energy; es verändert Systemeinstellungen auf deinem Rechner. Für Schäden an
+deiner Hardware, Software oder Anlage wird keine Haftung übernommen.
+
+**Die Victron-Tools sind für Fachleute gedacht.** Victron richtet VEConfigure
+und die VE.Bus-Werkzeuge an geschulte Techniker, Installateure und Fachhändler,
+nicht an Anlagenbesitzer und Endanwender — die sollten ihren Installateur
+fragen. Eine fehlerhafte Konfiguration kann eine Wechselrichter-Anlage dauerhaft
+beschädigen, und Victron leistet keinen Support für Konfigurationen durch
+ungeschulte Personen.
+
+Diese Anleitung zeigt dir nur, wie die Software mit dem Adapter spricht. Was
+die Einstellungen bedeuten, lernst du hier nicht. Vollständig:
+[NOTICE.md](../NOTICE.md).
+
+---
+
 ## Was du brauchst
 
 * Einen Linux-Rechner.
@@ -176,6 +195,11 @@ $ wine "$HOME/.wine/drive_c/Program Files (x86)/VE Configure tools/VEConfig.exe"
 ---
 
 ## Schritt 8 — Die erste Verbindung
+
+> ⚠️ **Ab hier veränderst du eine reale Anlage.** Mach nur weiter, wenn du die
+> Fachkenntnis dafür hast. Eine falsche Einstellung kann den Wechselrichter oder
+> die Anlage drumherum beschädigen. Wenn du der Betreiber und nicht der
+> Installateur bist, ist das der Punkt, an dem du übergeben solltest.
 
 Das ist die Stelle, an der alle hängenbleiben:
 

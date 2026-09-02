@@ -12,6 +12,14 @@ case "${VICTRON_LANG:-${LC_ALL:-${LC_MESSAGES:-${LANG:-}}}}" in
 esac
 
 if [ "$VLANG" = de ]; then
+    # --- warning shown by install.sh ---------------------------------------
+    M_WARN_HEAD="Hinweis"
+    M_WARN_1="Benutzung auf eigene Gefahr. Dieses Projekt stammt nicht von Victron Energy."
+    M_WARN_2="Die Victron-Tools sind für geschulte Techniker, Installateure und Fachhändler"
+    M_WARN_2B="gedacht, nicht für Anlagenbesitzer und Endanwender."
+    M_WARN_3="Eine fehlerhafte Konfiguration kann deine Anlage dauerhaft beschädigen."
+    M_WARN_4="Ausführlich: NOTICE.md"
+
     # --- install.sh ---------------------------------------------------------
     M_USAGE_HEAD="Aufruf: ./install.sh [Optionen]"
     M_OPT_PREFIX="--prefix PFAD    Wine-Prefix (Vorgabe: \$WINEPREFIX oder ~/.wine)"
@@ -130,6 +138,14 @@ if [ "$VLANG" = de ]; then
     M_P_WARN="Hinweis: Diese Datei enthält Victron-Software. Nicht in ein öffentliches"
     M_P_WARN2="Repository committen -- .gitignore hält sie deshalb bewusst draussen."
 else
+    # --- warning shown by install.sh ---------------------------------------
+    M_WARN_HEAD="Please note"
+    M_WARN_1="Use at your own risk. This project does not come from Victron Energy."
+    M_WARN_2="The Victron tools are meant for trained engineers, installers and dealers,"
+    M_WARN_2B="not for system owners and end users."
+    M_WARN_3="A faulty configuration can damage your installation permanently."
+    M_WARN_4="Details: NOTICE.md"
+
     # --- install.sh ---------------------------------------------------------
     M_USAGE_HEAD="Usage: ./install.sh [options]"
     M_OPT_PREFIX="--prefix PATH    Wine prefix (default: \$WINEPREFIX or ~/.wine)"

@@ -17,6 +17,33 @@ Vorbereitung passiert typischerweise eins von beidem:
 Beides hat konkrete Ursachen, und alle sind lösbar. `install.sh` setzt die
 Lösungen um, `doctor.sh` sagt dir bei Problemen, welche davon fehlt.
 
+## ⚠️ Bevor du anfängst
+
+**Benutzung auf eigene Gefahr.** Dieses Projekt stammt nicht von Victron
+Energy. Es richtet udev-Regeln, systemd-Dienste und Wine-Einstellungen auf
+deinem Rechner ein. Du benutzt es auf eigene Verantwortung — für Schäden an
+Hardware, Software oder deiner Anlage, für Datenverlust oder Ausfälle wird
+keine Haftung übernommen. Sieh dir die Skripte an, bevor du sie ausführst.
+
+**Die Victron-Tools gehören in fachkundige Hände.** VEConfigure, VE.Bus System
+Configurator, VE.Bus Quick Configure und VEFlash sind Werkzeuge für
+Fachbetriebe. Victron richtet sie ausdrücklich an geschulte Techniker,
+Installateure und Fachhändler — nicht an Anlagenbesitzer und Endanwender, die
+sich stattdessen an ihren Installateur wenden sollen. Das Konfigurieren von
+Multi- und Quattro-Wechselrichtern setzt Schulung und Erfahrung voraus;
+Victron leistet keinen Support für Konfigurationen durch ungeschulte Personen.
+**Eine fehlerhafte Konfiguration kann deine Anlage dauerhaft beschädigen.** Ein
+Teil der Einstellungen ist durch ein Passwort geschützt, das nur mit einer
+Victron-Schulung herausgegeben wird.
+
+Das gilt besonders für **VEFlash**: Ein Firmware-Update löscht sämtliche
+Einstellungen, Assistenten sowie Parallel- und Dreiphasen-Konfigurationen —
+sichere deine Konfiguration vorher. Ein unterbrochenes Update kann das Gerät
+unbrauchbar machen.
+
+Dieses Projekt räumt nur die technischen Hürden unter Linux aus dem Weg. An den
+fachlichen Anforderungen ändert es nichts. Vollständig: [NOTICE.md](NOTICE.md).
+
 ## Voraussetzungen
 
 * Ein Linux-System mit **systemd** (die Distribution ist egal — Arch, Debian,

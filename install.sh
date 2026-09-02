@@ -49,6 +49,12 @@ ask() {
     case "$a" in [$M_YES_CHARS]*) return 0 ;; *) return 1 ;; esac
 }
 
+# ---------------------------------------------------------------- warning ---
+# Shown, not confirmed: anyone typing ./install.sh has seen the README, and a
+# forced prompt would make the script unusable in automation.
+printf '\033[33m\n  %s\n\033[0m' "$M_WARN_HEAD"
+printf '\033[33m  %s\n\033[0m' "$M_WARN_1" "$M_WARN_2" "$M_WARN_2B" "$M_WARN_3" "$M_WARN_4"
+
 # ------------------------------------------------------------ distribution --
 DISTRO=unknown
 [ -r /etc/os-release ] && . /etc/os-release && DISTRO="${ID:-unknown}"

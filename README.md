@@ -16,6 +16,31 @@ you typically see one of these:
 Both have concrete causes, and all of them are fixable. `install.sh` applies
 the fixes, `doctor.sh` tells you which one is missing when something breaks.
 
+## ⚠️ Before you start
+
+**Use at your own risk.** This project does not come from Victron Energy. It
+installs udev rules, systemd services and Wine settings on your machine. You
+use it on your own responsibility — no liability is accepted for damage to
+hardware, software or your installation, for data loss, or for downtime. Read
+the scripts before you run them.
+
+**The Victron tools belong in qualified hands.** VEConfigure, VE.Bus System
+Configurator, VE.Bus Quick Configure and VEFlash are professional tools.
+Victron addresses them explicitly to trained engineers, installers and
+dealers — not to system owners and end users, who are asked to consult their
+installer instead. Configuring Multi and Quattro inverter/chargers takes
+training and experience, and Victron offers no support for configuration
+carried out by untrained people. **A faulty configuration can damage your
+installation permanently.** Some settings are protected by a password that is
+only handed out with Victron training.
+
+This applies to **VEFlash** in particular: a firmware update erases all
+settings, assistants and parallel or three-phase configuration — save your
+configuration first. An interrupted update can leave the device unusable.
+
+This project only clears the technical obstacles on Linux. It changes nothing
+about the expertise the job requires. Full text: [NOTICE.md](NOTICE.md).
+
 ## Requirements
 
 * A Linux system with **systemd** (any distribution — Arch, Debian, Ubuntu,

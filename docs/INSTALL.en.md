@@ -11,6 +11,23 @@ desktops, or by searching for "Terminal" in your application menu.
 
 ---
 
+## Before you start — please read
+
+**You use this at your own risk.** This project does not come from Victron
+Energy; it changes system settings on your computer. Nobody accepts liability
+for damage to your hardware, software or installation.
+
+**The Victron tools are meant for professionals.** Victron addresses
+VEConfigure and the VE.Bus tools to trained engineers, installers and dealers,
+not to system owners and end users — those should ask their installer. A faulty
+configuration can permanently damage an inverter installation, and Victron
+offers no support for configuration done by untrained people.
+
+This guide only shows you how to get the software talking to the adapter. It
+does not teach you what the settings mean. Full text: [NOTICE.md](../NOTICE.md).
+
+---
+
 ## What you need
 
 * A Linux computer.
@@ -170,6 +187,11 @@ $ wine "$HOME/.wine/drive_c/Program Files (x86)/VE Configure tools/VEConfig.exe"
 ---
 
 ## Step 8 — The first connection
+
+> ⚠️ **From here on you are changing a live installation.** Only carry on if you
+> have the training for it. A wrong setting can damage the inverter or the
+> system around it. If you are the owner rather than the installer, this is the
+> point to hand over to your installer.
 
 This is the part that trips everyone up:
 
